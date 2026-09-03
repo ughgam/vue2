@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeijingWay</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" >
+        <h1>Chyna...Chaina..China</h1>
+        and you?
+        <input type="text" v-model="visitor_name">
+        <br>and your thoughts?
+        <input type="text" v-model="visitor_message">
+        <button v-on:click="sayhi">Say Hi</button>
+
+        <ul>
+            <li v-for="message in messages">{{message["visitor_name"]}} said "{{message['visitor_message']}}"</li>
+        </ul>
+        <p v-if="count==0"></p>
+        <p v-else-if="count>4">too many</p>
+        <p v-else>and counting:{{count}}</p>
+    </div>
+    
+    
+</body>
+<script type="text/javascript" src="app.js"></script>
+</html>
