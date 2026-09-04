@@ -7,9 +7,23 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
+    <h1>Chyna...Chaina..China</h1>
     <div id="app" >
-        <h1>Chyna...Chaina..China</h1>
-        <mess_board></mess_board>
+        <h2>we are monitoring not a single message... exactly {{global_count}} to be specific</h2>
+        <table>
+                <tr>
+                    <td>
+                        <mess_board title="bot1" @gcplus1="gc"></mess_board>
+                    </td>
+                    <td>
+                        <mess_board title="bot2" @gcplus1="gc"></mess_board>
+                    </td>
+                    <td>
+                        <mess_board title="bot3" @gcplus1="gc"></mess_board>
+                    </td>
+                </tr>
+        </table>
+        
     </div>
     
     

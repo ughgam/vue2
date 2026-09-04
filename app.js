@@ -1,10 +1,12 @@
 Vue.component('mess_board',{
+    props:['title'],
     template: `
-        <div>and you?
-        <input type="text" v-model="visitor_name">
-        <br>and your thoughts?
-        <input type="text" v-model="visitor_message">
-        <button v-on:click="sayhi">Say Hi</button>
+        <div>
+        <h3>{{title}}</h3>
+        <p>thoughts... <input type="text" v-model="visitor_message"> 
+        </p>
+        <p> and you? <input type="text" v-model="visitor_name"> <button v-on:click="sned">Sned </button></p>
+       
 
         <ul>
             <li v-for="message in messages">{{message["visitor_name"]}} said {{message['visitor_message']}}</li>
@@ -20,10 +22,10 @@ Vue.component('mess_board',{
         }
     },
     methods:{
-        sayhi: function() {
+        sned: function() {
             this.messages.push({"visitor_name":this.visitor_name, "visitor_message":this.visitor_message})
-            this.visitor_name='',
             this.visitor_message=""
+            this.$emit('gcplus1')
         }
     },
     computed:{
@@ -34,5 +36,13 @@ Vue.component('mess_board',{
 })
 
 var app=new Vue({
-    el:"#app"
+    el:"#app",
+    data:{
+        global_count:0
+    },
+    methods:{
+        gc:function(){
+            this.global_count++
+        }
+    }
 })
