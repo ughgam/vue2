@@ -74,7 +74,6 @@ var app=new Vue({
     beforeCreate: function(){
         console.log('app beforeCreate')
         console.log("app one... trying to print global_count",this.global_count)
-        
     },
     created: function(){
         console.log("app created",this.global_count)
