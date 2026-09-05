@@ -1,4 +1,20 @@
-Vue.component('mess_board',{
+const Tech=Vue.component('tech',{
+    template:`
+    <div>
+        <h3>Tech</h3>
+    </div>
+    `
+    
+})
+const Art=Vue.component('art',{
+    template:`
+    <div>
+        <h3>Art</h3>
+    </div>
+    `
+})
+
+const MessBoard=Vue.component('mess_board',{
     props:['title'],
     template: `
         <div>
@@ -9,10 +25,10 @@ Vue.component('mess_board',{
 
 
         <ul>
-            <li v-for="message in messages">{{message["visitor_name"]}} said {{message['visitor_message']}}</li>
+            <li v-for="message in messages">{{message["visitor_name"]}}: 
+            <br>{{message['visitor_message']}}</li>
         </ul>
         </div>
-        
     `,
     data: function() {
         return {
@@ -78,9 +94,24 @@ Vue.component('mess_board',{
     //     console.log('component destroyed',this.$el)
     // }
 })
+const routes=[{
+    path:'/',
+    component:MessBoard,
+    props:{title:'agam'}
+},{
+    path:'/tech',
+    component:Tech
+},{
+    path:'/art',
+    component:Art
+}]
+const router=new VueRouter({
+    routes:routes //(or just) routes
+})
 
 var app=new Vue({
     el:"#app",
+    router:router,
     data:{
         global_count:0
     },

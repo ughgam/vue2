@@ -10,29 +10,26 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="https://unpkg.com/vue-router@3/dist/vue-router.js"></script>
     <link
     rel="icon"
     type="image/png"
     href="https://e7.pngegg.com/pngimages/268/169/png-clipart-kuso-miso-technique-trollface-internet-meme-chad-face-meme-angle-face.png">
 </head>
 <body>
-    <h1>Chyna...Chaina..China</h1>
-    <div id="app" >
-        <h2>we are monitoring not a single message... exactly {{global_count}} to be specific</h2>
-        <table>
-                <tr>
-                    <td>
-                        <mess_board title="bot1" @gcplus1="gc"></mess_board>
-                    </td>
-                    <td>
-                        <mess_board title="bot2" @gcplus1="gc"></mess_board>
-                    </td>
-                    <td>
-                        <mess_board title="bot3" @gcplus1="gc"></mess_board>
-                    </td>
-                </tr>
-        </table>
-        
+    <h1 class="text-center">Chyna...Chaina..China</h1>
+    <div class='container' id="app" >
+        <router-link to='/'>Home</router-link>
+        <router-link to="/tech">Tech</router-link>
+        <router-link to="/art">Art</router-link>
+
+        <div class="row">
+            <div class="col">
+                <router-view>
+                    <mess_board title="agam" @gcplus1="gc"
+                </router-view>
+            </div>
+        </div>
     </div>
     
     
