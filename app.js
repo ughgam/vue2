@@ -1,3 +1,28 @@
+const store=new Vuex.Store({
+    state:{
+        global_count:0
+    },
+    mutations:{
+        stateplus1(state){state.global_count++}
+    },
+    getters:{
+        get_global_count:function(state){
+            return state.global_count.toLocaleString("en-IN",{
+                minimumIntegerDigits:2,
+                useGrouping:false
+            })}},
+    actions:{
+        mutationsbutasync(context){
+            //fetch or ajx call
+
+            //sucess you can call commit
+            context.commit('stateplus1')
+            //failure... are we?
+
+        }
+    }
+})
+
 const Tech=Vue.component('tech',{
     template:`
     <div>
@@ -56,7 +81,10 @@ const MessBoard=Vue.component('mess_board',{
                 })
 
             this.visitor_message=""
-            this.$emit('gcplus1')
+            // this.$emit('gcplus1')
+            // this.$store.commit('stateplus1') //for mutations
+            this.$store.dispatch('mutationsbutasync') //for actions
+            // store.state.global_count ++
         }
     },
     computed:{
@@ -112,14 +140,13 @@ const router=new VueRouter({
 var app=new Vue({
     el:"#app",
     router:router,
-    data:{
-        global_count:0
-    },
-    methods:{
-        gc:function(){
-            this.global_count++
+    store:store,
+    computed:{
+        global_count:function(){
+           return this.$store.getters.get_global_count
+            // return this.$store.state.global_count
         }
-    },
+    }
     // beforeCreate: function(){
     //     console.log('app beforeCreate')
     //     console.log("app one... trying to print global_count",this.global_count)
