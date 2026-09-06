@@ -18,7 +18,6 @@ const store=new Vuex.Store({
             //sucess you can call commit
             context.commit('stateplus1')
             //failure... are we?
-
         }
     }
 })
